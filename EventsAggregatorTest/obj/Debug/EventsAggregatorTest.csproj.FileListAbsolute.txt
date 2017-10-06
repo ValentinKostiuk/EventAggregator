@@ -1,0 +1,8 @@
+D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\bin\Debug\EventsAggregatorTest.exe.config
+D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\bin\Debug\EventsAggregatorTest.exe
+D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\bin\Debug\EventsAggregatorTest.pdb
+D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\bin\Debug\Ninject.dll
+D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\bin\Debug\Ninject.xml
+D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.csprojResolveAssemblyReference.cache
+D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.exe
+D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.pdb
