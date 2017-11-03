@@ -1,58 +1,58 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using EventsAggregator.Core.Services.Interfaces;
 
-namespace EventsAggregatorTest.Core.Services
+namespace EventsAggregator.Core.Services
 {
-	public class EventAggregator
+	public class EventAggregator<TEventArgs> : IEventAggregator<TEventArgs> where TEventArgs: EventArgs
 	{
-		private readonly Dictionary<Type, IList> _subscriber;
+		private readonly Dictionary<Type, IList<ISubscription<TEventArgs>>> _allSubscribtions;
 
 		public EventAggregator()
 		{
-			_subscriber = new Dictionary<Type, IList>();
+			_allSubscribtions = new Dictionary<Type, IList<ISubscription<TEventArgs>>>();
 		}
 
-		public void Publish<TEventArgs>(object sender, TEventArgs eventArgs) where TEventArgs : EventArgs
+		public void Publish(object sender, TEventArgs eventArgs)
 		{
 			Type argumentsType = typeof(TEventArgs);
-			if (_subscriber.ContainsKey(argumentsType))
+			if (_allSubscribtions.ContainsKey(argumentsType))
 			{
-				IList subscriptions = new List<Subscription<TEventArgs>>(_subscriber[argumentsType].Cast<Subscription<TEventArgs>>());
+				IList subscriptions = new List<ISubscription<TEventArgs>>(_allSubscribtions[argumentsType]);
 
-				foreach (Subscription<TEventArgs> subscription in subscriptions)
+				foreach (ISubscription<TEventArgs> subscription in subscriptions)
 				{
 					subscription.Handler(sender, eventArgs);
 				}
 			}
 		}
 
-		public Subscription<TEventArgs> Subscribe<TEventArgs>(AggregatorEventHandler<TEventArgs> handler) where TEventArgs : EventArgs
+		public Subscription<TEventArgs> Subscribe(AggregatorEventHandler<TEventArgs> handler)
 		{
 			Type argumentsType = typeof(TEventArgs);
-			IList subscriptions;
-			var actiondetail = new Subscription<TEventArgs>(handler, this);
+			IList<ISubscription<TEventArgs>> subscriptionsOfType;
+			var actionDetail = new Subscription<TEventArgs>(handler, this);
 
-			if (!_subscriber.TryGetValue(argumentsType, out subscriptions))
+			if (!_allSubscribtions.TryGetValue(argumentsType, out subscriptionsOfType))
 			{
-				subscriptions = new List<Subscription<TEventArgs>> {actiondetail};
-				_subscriber.Add(argumentsType, subscriptions);
+				subscriptionsOfType = new List<ISubscription<TEventArgs>> {actionDetail};
+				_allSubscribtions.Add(argumentsType, subscriptionsOfType);
 			}
 			else
 			{
-				subscriptions.Add(actiondetail);
+				subscriptionsOfType.Add(actionDetail);
 			}
 
-			return actiondetail;
+			return actionDetail;
 		}
 
-		public void UnSbscribe<TEventArgs>(Subscription<TEventArgs> subscription) where TEventArgs : EventArgs
+		public void UnSbscribe(ISubscription<TEventArgs> subscription)
 		{
 			Type argumentsType = typeof(TEventArgs);
-			if (_subscriber.ContainsKey(argumentsType))
+			if (_allSubscribtions.ContainsKey(argumentsType))
 			{
-				_subscriber[argumentsType].Remove(subscription);
+				_allSubscribtions[argumentsType].Remove(subscription);
 			}
 		}
 

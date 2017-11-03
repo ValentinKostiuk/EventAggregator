@@ -6,3 +6,12 @@ D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\bin\D
 D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.csprojResolveAssemblyReference.cache
 D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.exe
 D:\Training\EventsAggregatorTest\EventsAggregatorTest\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.pdb
+D:\Valentin\EventAggregator\EventsAggregatorTest\bin\Debug\EventsAggregatorTest.exe.config
+D:\Valentin\EventAggregator\EventsAggregatorTest\bin\Debug\EventsAggregatorTest.exe
+D:\Valentin\EventAggregator\EventsAggregatorTest\bin\Debug\EventsAggregatorTest.pdb
+D:\Valentin\EventAggregator\EventsAggregatorTest\bin\Debug\Ninject.dll
+D:\Valentin\EventAggregator\EventsAggregatorTest\bin\Debug\Ninject.xml
+D:\Valentin\EventAggregator\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.csprojResolveAssemblyReference.cache
+D:\Valentin\EventAggregator\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.csproj.CoreCompileInputs.cache
+D:\Valentin\EventAggregator\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.exe
+D:\Valentin\EventAggregator\EventsAggregatorTest\obj\Debug\EventsAggregatorTest.pdb
