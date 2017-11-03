@@ -3,12 +3,12 @@ using EventAggregator.Interfaces;
 
 namespace EventAggregator
 {
-	public delegate void AggregatorEventHandler<TEventArgs>(object sender, TEventArgs eventArgs)
+	public delegate void AggregatorEventHandler<in TEventArgs>(object sender, TEventArgs eventArgs)
 		where TEventArgs : EventArgs;
 	public class Subscription<TEventArgs> : ISubscription<TEventArgs> where TEventArgs : EventArgs
 	{
 		public AggregatorEventHandler<TEventArgs> Handler { get; private set; }
-		private readonly global::EventAggregator.EventAggregator _eventAggregator;
+		private readonly EventAggregator _eventAggregator;
 		private bool _isDisposed;
 
 		public Subscription(AggregatorEventHandler<TEventArgs> handler, global::EventAggregator.EventAggregator eventAggregator)

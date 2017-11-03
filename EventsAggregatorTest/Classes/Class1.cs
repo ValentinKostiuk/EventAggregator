@@ -20,10 +20,9 @@ namespace EventsAggregator.Classes
             _eventAggregator.Publish(this, EventArgs.Empty);
 		}
 
-	    private void HandleClass3Event(object source, Class3 eventArgs)
+	    private void HandleClass3Event(object sender, Class3 eventArgs)
 	    {
-            Console.WriteLine("Received event from: " + source.GetType() + ". With message: " + eventArgs.Message);
-	    }
-
+	        Console.WriteLine("Received event from: " + sender.GetType() + ". With message: " + eventArgs.Message);
+        }
 	}
 }
