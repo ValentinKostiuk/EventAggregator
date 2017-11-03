@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace EventsAggregatorTest.Core.Services
+namespace EventsAggregator.Core.Services
 {
-	public delegate void AggregatorEventHandler<in TEventArgs>(object sender, TEventArgs eventArgs)
+	public delegate void AggregatorEventHandler<TEventArgs>(object sender, TEventArgs eventArgs)
 		where TEventArgs : EventArgs;
-	public class Subscription<TEventArgs> : IDisposable where TEventArgs : EventArgs
+	public class Subscription<TEventArgs> : ISubscription<TEventArgs> where TEventArgs : EventArgs
 	{
 		public AggregatorEventHandler<TEventArgs> Handler { get; private set; }
 		private readonly EventAggregator _eventAggregator;

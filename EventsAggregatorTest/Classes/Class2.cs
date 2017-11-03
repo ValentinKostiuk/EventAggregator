@@ -1,7 +1,7 @@
 ﻿using System;
-using EventsAggregatorTest.Classes.Interfaces;
+using EventsAggregator.Classes.Interfaces;
 
-namespace EventsAggregatorTest.Classes
+namespace EventsAggregator.Classes
 {
 	public class Class2: Interface2
 	{

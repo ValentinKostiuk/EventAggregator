@@ -1,8 +1,8 @@
 ﻿using System;
-using EventsAggregatorTest.Classes.Interfaces;
+using EventsAggregator.Classes.Interfaces;
 using Ninject;
 
-namespace EventsAggregatorTest.Classes
+namespace EventsAggregator.Classes
 {
 	public class Class1: Interface1
 	{

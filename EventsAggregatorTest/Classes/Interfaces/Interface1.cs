@@ -1,4 +1,4 @@
-﻿namespace EventsAggregatorTest.Classes.Interfaces
+﻿namespace EventsAggregator.Classes.Interfaces
 {
 	public interface Interface1
 	{

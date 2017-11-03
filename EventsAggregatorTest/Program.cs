@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using EventsAggregatorTest.Classes;
-using EventsAggregatorTest.Classes.Interfaces;
+using EventsAggregator.Classes.Interfaces;
 using EventsAggregatorTest.Core;
 using Ninject;
 

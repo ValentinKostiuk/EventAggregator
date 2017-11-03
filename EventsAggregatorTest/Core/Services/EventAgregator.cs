@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EventsAggregatorTest.Core.Services
+namespace EventsAggregator.Core.Services
 {
 	public class EventAggregator
 	{
@@ -19,9 +19,9 @@ namespace EventsAggregatorTest.Core.Services
 			Type argumentsType = typeof(TEventArgs);
 			if (_subscriber.ContainsKey(argumentsType))
 			{
-				IList subscriptions = new List<Subscription<TEventArgs>>(_subscriber[argumentsType].Cast<Subscription<TEventArgs>>());
+				IList subscriptions = new List<ISubscription<TEventArgs>>(_subscriber[argumentsType].Cast<Subscription<TEventArgs>>());
 
-				foreach (Subscription<TEventArgs> subscription in subscriptions)
+				foreach (ISubscription<TEventArgs> subscription in subscriptions)
 				{
 					subscription.Handler(sender, eventArgs);
 				}
@@ -32,19 +32,19 @@ namespace EventsAggregatorTest.Core.Services
 		{
 			Type argumentsType = typeof(TEventArgs);
 			IList subscriptions;
-			var actiondetail = new Subscription<TEventArgs>(handler, this);
+			var subscrtionDetail = new Subscription<TEventArgs>(handler, this);
 
 			if (!_subscriber.TryGetValue(argumentsType, out subscriptions))
 			{
-				subscriptions = new List<Subscription<TEventArgs>> {actiondetail};
+				subscriptions = new List<ISubscription<TEventArgs>> {subscrtionDetail};
 				_subscriber.Add(argumentsType, subscriptions);
 			}
 			else
 			{
-				subscriptions.Add(actiondetail);
+				subscriptions.Add(subscrtionDetail);
 			}
 
-			return actiondetail;
+			return subscrtionDetail;
 		}
 
 		public void UnSbscribe<TEventArgs>(Subscription<TEventArgs> subscription) where TEventArgs : EventArgs

@@ -1,6 +1,6 @@
 ﻿using System;
-using EventsAggregatorTest.Classes;
-using EventsAggregatorTest.Classes.Interfaces;
+using EventsAggregator.Classes;
+using EventsAggregator.Classes.Interfaces;
 using Ninject.Modules;
 
 namespace EventsAggregatorTest.Core
