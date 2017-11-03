@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using EventsAggregator.Core.Services.Interfaces;
+using EventAggregator.Interfaces;
 
-namespace EventsAggregator.Core.Services
+namespace EventAggregator
 {
 	public class EventAggregator : IEventAggregator
 	{

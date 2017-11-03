@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsAggregator", "EventsAggregatorTest\EventsAggregator.csproj", "{1E0DC5A9-24D1-4A65-BE4C-E3F2062AF4DD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FA20B4B2-3EEB-4655-9435-936F2A213D7D} = {FA20B4B2-3EEB-4655-9435-936F2A213D7D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAggregator", "EventAggregator\EventAggregator.csproj", "{FA20B4B2-3EEB-4655-9435-936F2A213D7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{1E0DC5A9-24D1-4A65-BE4C-E3F2062AF4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E0DC5A9-24D1-4A65-BE4C-E3F2062AF4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E0DC5A9-24D1-4A65-BE4C-E3F2062AF4DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA20B4B2-3EEB-4655-9435-936F2A213D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA20B4B2-3EEB-4655-9435-936F2A213D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA20B4B2-3EEB-4655-9435-936F2A213D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA20B4B2-3EEB-4655-9435-936F2A213D7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

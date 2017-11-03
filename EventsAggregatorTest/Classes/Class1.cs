@@ -1,6 +1,6 @@
 ﻿using System;
 using EventsAggregator.Classes.Interfaces;
-using EventsAggregator.Core.Services.Interfaces;
+using EventAggregator.Interfaces;
 
 namespace EventsAggregator.Classes
 {

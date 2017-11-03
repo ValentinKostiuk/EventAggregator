@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EventsAggregator.Core.Services.Interfaces
+namespace EventAggregator.Interfaces
 {
     public interface IEventAggregator
     {
