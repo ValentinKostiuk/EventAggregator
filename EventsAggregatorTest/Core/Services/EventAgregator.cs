@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EventsAggregator.Core.Services.Interfaces;
 
 namespace EventsAggregator.Core.Services
 {
@@ -31,23 +32,22 @@ namespace EventsAggregator.Core.Services
 		public Subscription<TEventArgs> Subscribe<TEventArgs>(AggregatorEventHandler<TEventArgs> handler) where TEventArgs : EventArgs
 		{
 			Type argumentsType = typeof(TEventArgs);
-			IList subscriptions;
-			var subscrtionDetail = new Subscription<TEventArgs>(handler, this);
+		    var subscrtionDetail = new Subscription<TEventArgs>(handler, this);
 
-			if (!_subscriber.TryGetValue(argumentsType, out subscriptions))
+			if (!_subscriber.TryGetValue(argumentsType, out var subscriptionsForType))
 			{
-				subscriptions = new List<ISubscription<TEventArgs>> {subscrtionDetail};
-				_subscriber.Add(argumentsType, subscriptions);
+				subscriptionsForType = new List<ISubscription<TEventArgs>> {subscrtionDetail};
+				_subscriber.Add(argumentsType, subscriptionsForType);
 			}
 			else
 			{
-				subscriptions.Add(subscrtionDetail);
+				subscriptionsForType.Add(subscrtionDetail);
 			}
 
 			return subscrtionDetail;
 		}
 
-		public void UnSbscribe<TEventArgs>(Subscription<TEventArgs> subscription) where TEventArgs : EventArgs
+		public void UnSbscribe<TEventArgs>(ISubscription<TEventArgs> subscription) where TEventArgs : EventArgs
 		{
 			Type argumentsType = typeof(TEventArgs);
 			if (_subscriber.ContainsKey(argumentsType))

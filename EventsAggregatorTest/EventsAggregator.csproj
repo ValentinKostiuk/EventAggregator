@@ -64,8 +64,9 @@
   <ItemGroup>
     <Compile Include="Classes\Class1.cs" />
     <Compile Include="Classes\Class2.cs" />
-    <Compile Include="Classes\Interfaces\Interface1.cs" />
-    <Compile Include="Classes\Interfaces\Interface2.cs" />
+    <Compile Include="Classes\Class3.cs" />
+    <Compile Include="Classes\Interfaces\IClass1.cs" />
+    <Compile Include="Classes\Interfaces\IClass2.cs" />
     <Compile Include="Core\NinjectBindings.cs" />
     <Compile Include="Core\Services\EventAgregator.cs" />
     <Compile Include="Core\Services\Interfaces\IEventAggregator.cs" />

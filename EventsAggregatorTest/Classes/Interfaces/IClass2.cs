@@ -1,6 +1,6 @@
 ﻿namespace EventsAggregator.Classes.Interfaces
 {
-	public interface Interface2
+	public interface IClass2
 	{
 	}
 }

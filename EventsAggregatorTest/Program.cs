@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Reflection;
 using EventsAggregator.Classes.Interfaces;
-using EventsAggregatorTest.Core;
 using Ninject;
 
-namespace EventsAggregatorTest
+namespace EventsAggregator
 {
 	class Program
 	{
@@ -13,9 +12,10 @@ namespace EventsAggregatorTest
 			StandardKernel kernel = new StandardKernel();
 			kernel.Load(Assembly.GetExecutingAssembly());
 
-			var c1 = kernel.Get<Interface1>();
-			//var c1 = new Class1();
-			c1.Log();
+			var c1 = kernel.Get<IClass1>();
+			var c2 = kernel.Get<IClass2>();
+
+			c1.EmmitEvent();
 
 			Console.ReadLine();
 		}

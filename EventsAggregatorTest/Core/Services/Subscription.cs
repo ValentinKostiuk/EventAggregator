@@ -1,4 +1,5 @@
 ﻿using System;
+using EventsAggregator.Core.Services.Interfaces;
 
 namespace EventsAggregator.Core.Services
 {

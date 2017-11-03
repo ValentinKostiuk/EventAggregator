@@ -1,7 +1,7 @@
 ﻿namespace EventsAggregator.Classes.Interfaces
 {
-	public interface Interface1
+	public interface IClass1
 	{
-		void Log();
+		void EmmitEvent();
 	}
 }

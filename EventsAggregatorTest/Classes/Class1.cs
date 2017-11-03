@@ -1,23 +1,29 @@
 ﻿using System;
 using EventsAggregator.Classes.Interfaces;
-using Ninject;
+using EventsAggregator.Core.Services.Interfaces;
 
 namespace EventsAggregator.Classes
 {
-	public class Class1: Interface1
+	public class Class1: IClass1
 	{
-		[Inject]
-		public virtual Interface2 Class2 { get; set; }
-
-		public Class1()
+	    private readonly IEventAggregator _eventAggregator;
+		public Class1(IEventAggregator eventAggregator)
 		{
-			Console.WriteLine("Class1");
+			Console.WriteLine("Class1 constructor");
+		    _eventAggregator = eventAggregator;
 		}
 
-		public void Log()
+		public void EmmitEvent()
 		{
-			Console.WriteLine("Class1 Loaded. Class2 referance: " + Class2.ToString());
+			Console.WriteLine("Sending event");
+		    _eventAggregator.Subscribe<Class3>(HandleClass3Event);
+            _eventAggregator.Publish(this, EventArgs.Empty);
 		}
-	
+
+	    private void HandleClass3Event(object source, Class3 eventArgs)
+	    {
+            Console.WriteLine("Received event from: " + source.GetType() + ". With message: " + eventArgs.Message);
+	    }
+
 	}
 }
