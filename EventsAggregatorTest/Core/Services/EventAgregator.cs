@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace EventsAggregator.Core.Services
 {
-	public class EventAggregator
+	public class EventAggregator : IEventAggregator
 	{
 		private readonly Dictionary<Type, IList> _subscriber;
 

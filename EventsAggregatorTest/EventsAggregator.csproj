@@ -68,7 +68,8 @@
     <Compile Include="Classes\Interfaces\Interface2.cs" />
     <Compile Include="Core\NinjectBindings.cs" />
     <Compile Include="Core\Services\EventAgregator.cs" />
-    <Compile Include="Core\Services\ISubscription.cs" />
+    <Compile Include="Core\Services\Interfaces\IEventAggregator.cs" />
+    <Compile Include="Core\Services\Interfaces\ISubscription.cs" />
     <Compile Include="Core\Services\Subscription.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,9 +78,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Services\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
