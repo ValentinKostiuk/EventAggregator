@@ -34,9 +34,7 @@ namespace EventAggregator
 			Type argumentsType = typeof(TEventArgs);
 		    var subscrtionDetail = new Subscription<TEventArgs>(handler, this);
 
-		    IList subscriptionsForType;
-
-            if (!_subscriber.TryGetValue(argumentsType, out subscriptionsForType))
+		    if (!_subscriber.TryGetValue(argumentsType, out var subscriptionsForType))
 			{
 				subscriptionsForType = new List<ISubscription<TEventArgs>> {subscrtionDetail};
 				_subscriber.Add(argumentsType, subscriptionsForType);
