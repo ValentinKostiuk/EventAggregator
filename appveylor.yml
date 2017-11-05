@@ -1,0 +1,11 @@
+before_build:
+ - nuget restore
+build_script:
+ - msbuild /verbosity:quiet "EventsAggregator.sln"
+test_script:
+ - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"EventAggregatorTests\bin\Debug\EventAggregatorTests.dll" -filter:"+[EventAggregator*]* -[Tests*]*"
+after_test:
+  - ps: |
+      $env:PATH = 'C:\msys64\usr\bin;' + $env:PATH
+      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
+      bash codecov.sh -f "results.xml" -t a1bc6499-6df6-4ea3-bfbc-681149a3fae4
